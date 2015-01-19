@@ -1,5 +1,5 @@
 # Group B - Detailed Economic Window (DEW)
-Elaine Ayo, Danielle Llanos, Will Sankey
+Elaine Ayo, Danielle Llanos, Will Sankey, Jing You
 
 
 Value Statement:
