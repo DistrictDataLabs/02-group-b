@@ -1,4 +1,4 @@
-#!/usr/bin/activate python
+#!/venv/bin/activate python
 import os
 import sys
 
