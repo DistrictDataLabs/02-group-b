@@ -1,1 +1,1 @@
-web: gunicorn wgsi.py -b 0.0.0.0:$PORT
+web: gunicorn wgsi.py -b 0.0.0.0:$PORT --preload
