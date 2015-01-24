@@ -1,1 +1,1 @@
-web: gunicorn dew:app --log-file -
+web: gunicorn wgsi.py -b 0.0.0.0:$PORT
