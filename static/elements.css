@@ -1,4 +1,8 @@
 /*General*/
+
+* {
+  * font-family: "Raleway";
+}
 i {
 	margin: 0 0 0 .5em;
 }

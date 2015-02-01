@@ -11,5 +11,10 @@ def home():
 def about():
     return render_template("about.html")
 
+
+static = Flask(__name__, static_url_path='/static')
+assets = Flask(__name__, static_url_path='/assets')
+data = Flask(__name__, static_url_path='/data')
+
 if __name__ == '__main__':
     app.run(debug=True)
