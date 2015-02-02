@@ -7,8 +7,8 @@ $(document).ready(function() {
   //Reading map file and data
 
   queue()
-  .defer(d3.json, Flask.url_for("static", {"filename": 'us.json'}))
-  .defer(d3.json, Flask.url_for("static", {"filename":'dewmvpv1.json'}))
+  .defer(d3.json, "/static/us.json")
+  .defer(d3.json, "/static/dewmvpv1.json")
   .await(ready);
 
   function ready(error, us, food_data) {

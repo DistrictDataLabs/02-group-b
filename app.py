@@ -13,10 +13,16 @@ def home():
 def about():
     return render_template("about.html")
 
+#Sending the us.json file
+@app.route('/usmap/')
+def usmap():
+    return "<a href=%s>file</a>" % url_for('static', filename='us.json')
 
-static = Flask(__name__, static_url_path='/static')
-assets = Flask(__name__, static_url_path='/assets')
-data = Flask(__name__, static_url_path='/data')
+#Sending our data
+@app.route('/data/')
+def data():
+    return "<a href=%s>file</a>" % url_for('static', filename='dewmvp1.json')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
