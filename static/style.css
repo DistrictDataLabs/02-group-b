@@ -45,10 +45,17 @@ body{
 	width: 280px;
 }
 
+#mapbox {
+  border-style: dotted;
+}
+
 svg{
 	margin-top: 10px;
+
 }
 
 #links{
 	text-align: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }

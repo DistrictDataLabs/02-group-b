@@ -11,44 +11,45 @@
 <div id="header">
 
 	<form id="totalCap">
-		<div>Secure Communities: IDENT/IAFIS usage through March 2013 by County</div>
+		<h2>Detailed Economic Window (DEW)</h2>
 		<select id="selectPer" class="select">
-			<option value="Total">Total</option>
-			<option value="PerCap">per Capita</option>
+			<option value="Total">Location Quotient 1</option>
+			<option value="PerCap">Location Quotient 2</option>
 		</select>
 
 		<select id="selectType" class="select">
-			<option value="Submissions">Database Submissions</option>
-			<option value="totalMatches">Database Matches</option>
-			<option value="totalReturns">Returns from Matches</option>
+			<option value="Submissions">Other Thing 1</option>
+			<option value="totalMatches">2</option>
+			<option value="totalReturns">3</option>
 		</select>			
 		: <span id="magicNum"></span>
 
 	</form>
 
 </div>
-
+<div id="mapbox">
 <svg id="map"></svg>
-
+</div>
 <div id = 'links'>
-	<a href = "https://migrahack.coshimel.com">about</a> &#124;
-	<a href = "https://www.ice.gov/doclib/foia/sc-stats/nationwide_interop_stats-fy2013-to-date.pdf">data</a> &#124; 
-	<a href = "https://github.com/1wheel/deportions">github</a>
+	<a href = "https://github.com/DistrictDataLabs/02-group-b">Methodology</a> &#124;
+	<a href = "http://www.districtdatalabs.com/">District Data Labs</a> &#124; 
+	<a href = "https://github.com">Github</a>
 </div>
 
 <script>
 var width = 800,
 	height = 500;
 var statById = d3.map();
-var colorRange = [	'rgb(247,251,255)',
+var colorRange = [	
+          'rgb(247,251,255)',
 					'rgb(222,235,247)',
 					'rgb(198,219,239)',
 					'rgb(158,202,225)',
-					'rgb(107,174,214)',
-					'rgb(66,146,198)',
-					'rgb(33,113,181)',
-					'rgb(8,81,156)',
-					'rgb(8,48,107)'];
+					'rgb(100,255,147)',
+					'rgb(87,222,128)',
+					'rgb(71,181,104)',
+					'rgb(50,127,73)',
+					'rgb(25,64,37)'];
 var quantile = d3.scale.quantile()
 		.range(colorRange);
 var path = d3.geo.path();
