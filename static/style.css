@@ -18,13 +18,13 @@ body{
 
 .counties {
 	fill: none;
-	stroke: grey;
+	stroke: black;
 	stroke-width:.2;
 }
 
 .states {
 	fill: none;
-	stroke: grey;
+	stroke: black;
 	stroke-linejoin: round;	
 	stroke-width:1;
 }
@@ -46,7 +46,8 @@ body{
 }
 
 #mapbox {
-  border-style: dotted;
+  border-style: solid;
+  border-width: 1px;
 }
 
 svg{
