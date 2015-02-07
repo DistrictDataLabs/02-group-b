@@ -1,11 +1,4 @@
 body{
-	width: 800px;
-	top: 30px;
-	right: 0px;
-	bottom: 0px;
-	left: 0px;
-	margin: auto;
-	margin-top: 10px;
 	font-family: Verdana;
 }
 
@@ -51,12 +44,22 @@ body{
 }
 
 svg{
-	margin-top: 10px;
+	margin-top: 0 auto;
+  border-style: solid;
 
+}
+
+#map {
+  margin: 0 auto;
 }
 
 #links{
 	text-align: center;
   margin-top: 2em;
   margin-bottom: 2em;
+}
+
+#navbar {
+  background-color: white;
+  height: 75px;
 }

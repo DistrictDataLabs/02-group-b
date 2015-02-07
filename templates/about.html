@@ -1,17 +1,45 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <head>
-<link rel="stylesheet" type="text/css" href="style.css"/>
 <link rel="stylesheet" type="text/css" href="tooltip.css"/>
 <script src="{{url_for('static', filename='d3.min.js')}}"></script>
 <script src="{{url_for('static', filename='queue.min.js')}}"></script>
 <script src="{{url_for('static', filename='topojson.v1.min.js')}}"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{url_for('static',filename='normalize.css')}}">
+<link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
-<div id="header">
+<nav class="navbar navbar-default" id="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img alt="DEW" src="{{url_for('static', filename='Detailed Economic Window 7.png')}}" style="height: 50px"></a>
+        <button type="button" class="btn btn-default navbar-btn navbar-right">About</button>
+        <button type="button" class="btn btn-default navbar-btn navbar-right">County Selector</button>
+    </div>
+  </div>
+</nav>
 
-	<form id="totalCap">
-		<h2>Detailed Economic Window (DEW)</h2>
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <h2>Detailed Economic Window (DEW)</h2>
+    </div>
+  </div>
+</div>
+
+</div>
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <svg id="map" style="margin: 0 auto"></svg>
+    </div>
+  </div>
+</div>
+
+  <form id="totalCap">
+
 		<select id="selectPer" class="select">
 			<option value="Total">Location Quotient 1</option>
 			<option value="PerCap">Location Quotient 2</option>
@@ -26,10 +54,6 @@
 
 	</form>
 
-</div>
-<div id="mapbox">
-<svg id="map"></svg>
-</div>
 <div id = 'links'>
 	<a href = "https://github.com/DistrictDataLabs/02-group-b">Methodology</a> &#124;
 	<a href = "http://www.districtdatalabs.com/">District Data Labs</a> &#124; 
@@ -45,11 +69,11 @@ var colorRange = [
 					'rgb(222,235,247)',
 					'rgb(198,219,239)',
 					'rgb(158,202,225)',
-					'rgb(100,255,147)',
-					'rgb(87,222,128)',
-					'rgb(71,181,104)',
-					'rgb(50,127,73)',
-					'rgb(25,64,37)'];
+					'rgb(64,89,82)',
+					'rgb(156,155,122)',
+					'rgb(255,211,147)',
+					'rgb(255,151,79)',
+					'rgb(245,79,41)'];
 var quantile = d3.scale.quantile()
 		.range(colorRange);
 var path = d3.geo.path();
