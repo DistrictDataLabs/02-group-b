@@ -60,6 +60,37 @@ svg{
 }
 
 #navbar {
-  background-color: white;
+  background-color: #405952;
+  color: #F54F29;
   height: 75px;
 }
+
+.Aboutbtn {
+  margin-right: 10px;
+}
+
+        footer {
+            color: #FF974F;
+            background: #405952;
+            padding: 17px 0 18px 0;
+            border-top: 1px solid #000;
+        }
+        footer a {
+            color: #999;
+        }
+        footer a:hover {
+            color: #efefef;
+        }
+        .wrapper {
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            margin: 0 auto -63px;
+        }
+        .push {
+            height: 63px;
+        }
+        /* not required for sticky footer; just pushes hero down a bit */
+        .wrapper > .container {
+            padding-top: 60px;
+        }
