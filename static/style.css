@@ -1,5 +1,7 @@
+@import url('//fonts.googleapis.com/css?family=Lustria:400,700,300');
+@import url('//fonts.googleapis.com/css?family=Lato:400,700,300');
 body{
-	font-family: Verdana;
+	font-family: Lato, Sans-serif;
 }
 
 #header{
@@ -55,28 +57,29 @@ svg{
 
 #links{
 	text-align: center;
-  margin-top: 2em;
-  margin-bottom: 2em;
 }
 
 #navbar {
   background-color: #405952;
   color: #F54F29;
-  height: 75px;
+  height: 70px;
+  text-align: middle;
 }
+
 
 .Aboutbtn {
   margin-right: 10px;
 }
 
         footer {
-            color: #FF974F;
+            color: #F54F29;
             background: #405952;
             padding: 17px 0 18px 0;
             border-top: 1px solid #000;
+            margin-top: 2em;
         }
         footer a {
-            color: #999;
+            color:  #FFD393;
         }
         footer a:hover {
             color: #efefef;
@@ -94,3 +97,7 @@ svg{
         .wrapper > .container {
             padding-top: 60px;
         }
+
+h1 {
+  font-family: Lustria, Sans-serif;
+}

@@ -11,11 +11,19 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="#">
         <img alt="DEW" src="{{url_for('static', filename='data1.svg')}}" style="height: 40px"></a>
-        The Detailed Economic Window (DEW)
-    </div>
-        <button type="button" class="btn btn-default navbar-btn pull-right">About</button>
-        <button type="button" class="btn btn-default navbar-btn pull-right">National Map</button>
-  </div>
+      <div style="margin-top: 10px;">
+        <div style="display: table-cell; vertical-align: middle;">The Detailed Economic Window (DEW)</div>
+        </div>
+      </div>
+      <div class="pull-right" style="margin-top: 10px">
+      <ul class="nav nav-pills">
+        <li>
+        <a href="{{ url_for('home')}}">National Map</a>
+        <li class="active"><a href="{{ url_for('about')}}">About</a></li>
+       </ul>
+     </div>
+     </div>
+   </div>
 </nav>
 
 <div class="container">
