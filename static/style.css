@@ -2,6 +2,7 @@
 @import url('//fonts.googleapis.com/css?family=Lato:400,700,300');
 body{
 	font-family: Lato, Sans-serif;
+  background-color: #E8E8E8;
 }
 
 #header{
@@ -77,6 +78,7 @@ svg{
             padding: 17px 0 18px 0;
             border-top: 1px solid #000;
             margin-top: 2em;
+            margin-bottom; 0;
         }
         footer a {
             color:  #FFD393;

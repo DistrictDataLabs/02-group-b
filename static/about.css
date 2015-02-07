@@ -1,4 +1,19 @@
-        footer {
+@import url('//fonts.googleapis.com/css?family=Lustria');
+@import url('//fonts.googleapis.com/css?family=Lato');
+body {
+  background-color: #E8E8E8;
+  font-family: Lato, Sans-serif;
+}
+
+#navbar {
+  background-color: #9C9B7A;
+  color: #FFD393;
+  height: 70px;
+  text-align: middle;
+}
+
+
+  footer {
             color: #FF974F;
             background: #405952;
             padding: 17px 0 18px 0;
