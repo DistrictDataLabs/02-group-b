@@ -45,9 +45,15 @@
   <div class="row">
     <div class="span12">
       <svg id="map" style="margin: 0 auto"></svg>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+     <div class="span8">
       		<select id="selectPer" class="select">
 			<option value="Total">Total</option>
-			<option value="PerCap">per Capita</option>
 		</select>
     <form id="totalCap">
 		<select id="selectType" class="select">
@@ -73,6 +79,7 @@
     </div>
   </div>
 </div>
+
 
 <div class="container">
   <div class="row">
@@ -100,21 +107,18 @@ var width = 800,
 	height = 500;
 var statById = d3.map();
 var colorRange = [	
-          'rgb(255,255,217)',
-					'rgb(237,248,177)',
-					'rgb(199,233,180)',
-					'rgb(127,205,187',
-					'rgb(65,182,196)',
-					'rgb(29,145,192)',
-					'rgb(34,94,168)',
-					'rgb(37,52,148)',
-					'rgb(8,29,88)'];
-var quantile = d3.scale.quantile()
+					'rgb(254,235,226)',
+					'rgb(251,180,185)',
+					'rgb(247,104,161',
+					'rgb(197,27,138)',
+					'rgb(122,1,119)'];
+var quantile = d3.scale.quantize()
 		.range(colorRange);
+
 var path = d3.geo.path();
 var svg = d3.select("#map")
 		.attr("width", width)
-		.attr("height", height)  
+		.attr("height", height)
 	.append('svg:g')
     	.call(d3.behavior.zoom().on("zoom", redraw))
   	.append('svg:g');
@@ -135,7 +139,7 @@ var tooltip = d3.select("body").append("div")
   	  .style("background", "rgba(250,250,250,.7)");
 tooltip.append("span").attr("id", "countyName")
 queue()
-	.defer(d3.json, "us.json")    
+	.defer(d3.json, "us.json")
 	.defer(d3.csv, "mvpfinal020715.csv")
 	.defer(d3.json, "countyPop.json")
 	.await(ready);
@@ -195,7 +199,7 @@ function ready(error, us, countiesJSON, countyPopJSON) {
 				})
 					.on("mouseout", function(d){
 						d3.select(this)
-							.attr("stroke", "")							
+							.attr("stroke", "")
 							.attr("stroke-width", .2)
 						tooltip.transition().duration(700).style("opacity", 0);
 			});
@@ -206,7 +210,7 @@ function ready(error, us, countiesJSON, countyPopJSON) {
 	menuChange();
 }
 var printDetails = [
-					{'var': 'Submissions', 'print': 'Submissions'},
+					{'var': 'fips', 'print': 'FIPS'},
 					{'var': 'totalMatches', 'print': 'Matches'},
 					{'var': 'none', 'print': ''},
 					{'var': 'Felony Returns', 'print': 'Felony Returns'},
@@ -262,4 +266,38 @@ function updateMap(key){
 				return "white";
 		}});
 }
+
+
+
+var legend = svg.selectAll('g.legendEntry')
+    .data(quantile.range())
+    .enter()
+    .append('g').attr('class', 'legendEntry');
+
+legend
+    .append('rect')
+    .attr("x", width - 780)
+    .attr("y", function(d, i) {
+       return i * 20;
+    })
+   .attr("width", 10)
+   .attr("height", 10)
+   .style("stroke", "black")
+   .style("stroke-width", 1)
+   .style("fill", function(d){return d;}); 
+       //the data objects are the fill colors
+
+legend
+    .append('text')
+    .attr("x", width - 760) //leave 5 pixel space after the <rect>
+    .attr("y", function(d, i) {
+       return i * 20;
+    })
+    .attr("dy", "0.8em") //place text one line *below* the x,y point
+    .text(function(d,i) {
+        var extent = quantile.invertExtent(d);
+        //extent will be a two-element array, format it however you want:
+        var format = d3.format("0.2f");
+        return format(+extent[0]) + " - " + format(+extent[1]);
+    });
 </script>
