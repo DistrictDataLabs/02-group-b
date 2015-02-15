@@ -3,6 +3,10 @@
 body{
 	font-family: Lato, Sans-serif;
   background-color: #E8E8E8;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+
 }
 
 #header{
@@ -72,33 +76,19 @@ svg{
   margin-right: 10px;
 }
 
-        footer {
+footer {
             color: #F54F29;
             background: #405952;
             padding: 17px 0 18px 0;
             border-top: 1px solid #000;
             margin-top: 2em;
             margin-bottom; 0;
+            position: absolute;
+            width: 100%;
         }
-        footer a {
-            color:  #FFD393;
-        }
-        footer a:hover {
-            color: #efefef;
-        }
-        .wrapper {
-            min-height: 100%;
-            height: auto !important;
-            height: 100%;
-            margin: 0 auto -63px;
-        }
-        .push {
-            height: 63px;
-        }
-        /* not required for sticky footer; just pushes hero down a bit */
-        .wrapper > .container {
-            padding-top: 60px;
-        }
+footer a {
+  color: #E8E8E8;
+}
 
 h1 {
   font-family: Lustria, Sans-serif;
