@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <meta charset="utf-8">
 <head>
@@ -172,14 +173,14 @@ Excluded from this sector are: (1) establishments that provide both accommodatio
 var width = 800,
 	height = 500;
 var statById = d3.map();
-var colorRange = [	
-					'rgb(254,235,226)',
-					'rgb(251,180,185)',
-					'rgb(247,104,161',
-					'rgb(197,27,138)',
-					'rgb(122,1,119)'];
-var quantile = d3.scale.quantize()
-		.range(colorRange);
+
+
+var ext_color_domain = [0, 1.000, 5.000, 50]
+var legend_labels = ["Under 1", "1-5","5-10", "50+"]
+
+var quantile = d3.scale.threshold()
+    .domain(isNaN,0,1,5,50)
+		.range(['white','#ffffcc','#addd8e','#41ab5d','#005a32']);
 
 var path = d3.geo.path();
 var svg = d3.select("#map")
@@ -218,9 +219,9 @@ function ready(error, us, countiesJSON, countyPopJSON) {
 	counties.forEach(function(d){
 		try{
 			d.lq_11 = +d['lq_11'];
-			d.lq_11 = +d['lq_21'];
- 			d.lq_11 = +d['lq_22'];
-			d.lq_11 = +d['lq_23'];
+			d.lq_21 = +d['lq_21'];
+ 			d.lq_22 = +d['lq_22'];
+			d.lq_23 = +d['lq_23'];
 			d.lq_11 = +d['lq_42'];
 			d.lq_11 = +d['lq_51'];
 			d.lq_11 = +d['lq_52'];
@@ -233,16 +234,16 @@ function ready(error, us, countiesJSON, countyPopJSON) {
 			d.lq_11 = +d['lq_72'];
 			d.lq_11 = +d['lq_81'];
 			d.lq_11 = +d['lq_92'];
-
 			statById.set(+d.fips, d);
-			if (isNaN(d.lq_11)){
+			if (isNaN(lq_21)) lq_21 = 0;
+			if (isNaN(lq_51)) lq_51 = 0;
+      {
 			}
 		}
 		catch(e){
 			//remove double lines of csv
 		}
 	});
-	quantile.domain(counties.map(function(d){return d.subPerCap;}));
 	countyShapes = svg.append("g")
 			.attr("class", "counties")
 		.selectAll("path")
@@ -277,9 +278,9 @@ function ready(error, us, countiesJSON, countyPopJSON) {
 }
 var printDetails = [
 					{'var': 'fips', 'print': 'FIPS'},
-					{'var': 'totalMatches', 'print': 'Matches'},
-					{'var': 'none', 'print': ''},
-					{'var': 'Felony Returns', 'print': 'Felony Returns'},
+					{'var': 'lq_21', 'print': 'Mining'},
+					{'var': 'lq_23', 'print': 'Construction'},
+					{'var': 'lq_51', 'print': 'Information'},
 					{'var': 'Convicted Criminals L1', 'print': 'Misdemeanor Returns'},
 					{'var': 'No Criminal Conviction Return', 'print': 'Paperwork Returns'},
 					{'var': 'none', 'print': ''},
@@ -315,12 +316,12 @@ function menuChange(){
 		.text(selectPerValue == 'PerCap' ? d3.round(num*10000/313000000, 3) + " per 100,000" : totalFormat(num));
 }
 function updateMap(key){
-	quantile.domain(counties.map(function(d){return d[key];}));
+	quantile.domain([0,1,5,50]);
 	countyShapes
 		.transition().duration(1000).ease(d3.ease('linear'))
 		.attr("fill", function(d) { 
 			if (statById.get(d.id)){
-				if(statById.get(d.id)[key] == 0){
+				if(statById.get(d.id)[key] == 0 || statById.get(d.id)[key]== false ){
 					return 'white';
 				}
 				else{
@@ -334,36 +335,27 @@ function updateMap(key){
 }
 
 
+var colors =(['white','#ffffcc','#addd8e','#41ab5d','#005a32']);
 
-var legend = svg.selectAll('g.legendEntry')
-    .data(quantile.range())
-    .enter()
-    .append('g').attr('class', 'legendEntry');
 
-legend
-    .append('rect')
-    .attr("x", width - 780)
-    .attr("y", function(d, i) {
-       return i * 20;
-    })
-   .attr("width", 10)
-   .attr("height", 10)
-   .style("stroke", "black")
-   .style("stroke-width", 1)
-   .style("fill", function(d){return d;}); 
-       //the data objects are the fill colors
-
-legend
-    .append('text')
-    .attr("x", width - 760) //leave 5 pixel space after the <rect>
-    .attr("y", function(d, i) {
-       return i * 20;
-    })
-    .attr("dy", "0.8em") //place text one line *below* the x,y point
-    .text(function(d,i) {
-        var extent = quantile.invertExtent(d);
-        //extent will be a two-element array, format it however you want:
-        var format = d3.format("0.2f");
-        return format(+extent[0]) + " - " + format(+extent[1]);
-    });
+var legend = svg.selectAll("g.legend")
+ .data(ext_color_domain)
+ .enter().append("g")
+ .attr("class", "legend");
+ 
+var ls_w = 20, ls_h = 20;
+ 
+legend.append("rect")
+ .attr("x", 20)
+ .attr("y", function(d, i){ return height - (i*ls_h) - 2*ls_h;})
+ .attr("width", ls_w)
+ .attr("height", ls_h)
+ .style("fill", function(d, i) { return colors[i]; } )
+ .style("opacity", 0.8);
+ 
+legend.append("text")
+ .attr("x", 50)
+ .attr("y", function(d, i){ return height - (i*ls_h) - ls_h - 4;})
+ .text(function(d, i){ return legend_labels[i]; });
+ 
 </script>

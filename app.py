@@ -11,6 +11,10 @@ def home():
 def about():
     return render_template("about.html")
 
+@app.route('/page')
+def page():
+    return render_template("page.html")
+
 @app.route('/us', methods=['GET'])
 def us():
     return open('static/us.json').read()

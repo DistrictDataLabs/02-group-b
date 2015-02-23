@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Test - Choropleth</title>
+<link rel="stylesheet" href="{{url_for('static',filename='normalize.css')}}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="tooltip.css"/>
+<script src="{{url_for('static', filename='d3.min.js')}}"></script>
+<script src="{{url_for('static', filename='queue.min.js')}}"></script>
+<script src="{{url_for('static', filename='topojson.v1.min.js')}}"></script> <!-- <script type="text/javascript" src="http://d3js.org/topojson.v1.min.js"></script> -->
+</head>
+</head>
+<style>
+
+path {
+ stroke:white;
+ stroke-width: 1px;
+}
+ 
+body {
+ font-family: Arial, sans-serif;
+}
+ 
+.city {
+ font: 10px sans-serif;
+ font-weight: bold;
+}
+ 
+.legend {
+ font-size: 12px;
+}
+ 
+div.tooltip {
+ position: absolute;
+ text-align: center;
+ width: 150px;
+ height: 25px;
+ padding: 2px;
+ font-size: 10px;
+ background: #FFFFE0;
+ border: 1px;
+ border-radius: 8px;
+ pointer-events: none;
+}
+</style>
+<body>
+<h1>Independent Farms in the USA</h1>
+    <form id="totalCap">
+		<select id="selectType" class="select">
+      <!-- <option value="lq_11">Agriculture, forestry, fishing and hunting</option> -->
+			<option value="lq_21">Mining, quarrying, and oil and gas extraction</option>
+      <!-- <option value="lq_22">Utilities</option> -->
+			<option value="lq_23">Construction</option>
+      <!-- <option value="lq_42">Wholesale trade</option> -->
+			<option value="lq_51">Information</option>
+			<option value="lq_52">Finance and insurance</option>
+      <!-- <option value="lq_53">Real estate and rental and leasing</option> -->
+      <!-- <option value="lq_54">Professional and technical services</option> -->
+      <!-- <option value="lq_55">Management of companies and enterprises</option> -->
+      <!-- <option value="lq_56">Administrative and waste servics</option> -->
+			<option value="lq_61">Educational services</option>
+			<option value="lq_62">Health care and social assistance</option>
+			<option value="lq_71">Arts, entertainment and recreation</option>
+      <!-- <option value="lq_72">Accomodation and food services</option> -->
+      <!-- <option value="lq_81">Other services, expect public administration</option> -->
+      <!-- <option value="lq_92">Public administration</option> -->
+		</select>			
+	</form>
+ <script type="text/javascript">
+ var width = 960,
+ height = 500;
+ var color_domain = [0, 1.000, 5.000, 10]
+ var ext_color_domain = [0, 1.000, 5.000, 50]
+ var legend_labels = ["<1", "1-5","5-10", "10+"]
+ var color = d3.scale.threshold()
+ .domain(color_domain)
+ .range(['#980043','#dd1c77','#ffffcc','#31a354','#006837']);
+ 
+var div = d3.select("body").append("div")
+ .attr("class", "tooltip")
+ .style("opacity", 0);
+ 
+var svg = d3.select("body").append("svg")
+ .attr("width", width)
+ .attr("height", height)
+ .style("margin", "10px auto");
+ var path = d3.geo.path()
+ 
+queue()
+ .defer(d3.json, "us.json")
+ .defer(d3.csv, "mvpfinal020715.csv")
+ .await(ready);
+ 
+function ready(error, us, data) {
+ var pairRateWithId = {};
+ var pairNameWithId = {};
+
+data.forEach(function(d) {
+ pairRateWithId[d.fips] = +d.lq_21;
+ pairNameWithId[d.fips] = d.fips;
+ });
+
+
+ svg.append("g")
+ .attr("class", "county")
+ .selectAll("path")
+ .data(topojson.feature(us, us.objects.counties).features)
+ .enter().append("path")
+ .attr("d", path)
+ .style ( "fill" , function (d) {
+ return color (pairRateWithId[d.id]);
+ })
+ .style("opacity", 0.8)
+ .on("mouseover", function(d) {
+ d3.select(this).transition().duration(300).style("opacity", 1);
+ div.transition().duration(300)
+ .style("opacity", 1)
+ div.text(pairNameWithId[d.id] + " : " + pairRateWithId[d.id])
+ .style("left", (d3.event.pageX) + "px")
+ .style("top", (d3.event.pageY -30) + "px");
+ })
+ .on("mouseout", function() {
+ d3.select(this)
+ .transition().duration(300)
+ .style("opacity", 0.8);
+ div.transition().duration(300)
+ .style("opacity", 0);
+ })
+
+d3.select('#selectType')
+  .on("change", function() {
+      key = document.getElementById("selectType").value;
+      update(key);
+      console.log(key);
+ });
+
+function update(key) {
+  data.forEach(function(d) {
+ eval(pairRateWithId[d.fips] = +d.key);
+ });
+  // adjust the text on the range slider
+  d3.selectAll("g")
+    .transition().duration(1000).ease(d3.ease('linear'))
+    .attr("class", "county")
+    .style("fill", function(d) {
+        return color (pairRateWithId[d.id]);
+        });
+}
+
+};
+
+
+
+var legend = svg.selectAll("g.legend")
+ .data(ext_color_domain)
+ .enter().append("g")
+ .attr("class", "legend");
+ 
+var ls_w = 20, ls_h = 20;
+ 
+legend.append("rect")
+ .attr("x", 20)
+ .attr("y", function(d, i){ return height - (i*ls_h) - 2*ls_h;})
+ .attr("width", ls_w)
+ .attr("height", ls_h)
+ .style("fill", function(d, i) { return color(d); })
+ .style("opacity", 0.8);
+ 
+legend.append("text")
+ .attr("x", 50)
+ .attr("y", function(d, i){ return height - (i*ls_h) - ls_h - 4;})
+ .text(function(d, i){ return legend_labels[i]; });
+ 
+</script>
+</body>
+</html>
+
