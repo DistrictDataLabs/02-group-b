@@ -35,7 +35,7 @@
 <div class="container">
   <div class="row">
     <div class="span12">
-      <h2>Industry concentrations across the country</h2>
+      <h2>Industrial concentration across the country</h2>
       <p>Scroll around the country and find location quotients in your area.</p>
     </div>
   </div>
@@ -53,9 +53,6 @@
 <div class="container">
   <div class="row">
      <div class="span8">
-      		<select id="selectPer" class="select">
-			<option value="Total">Total</option>
-		</select>
     <form id="totalCap">
 		<select id="selectType" class="select">
       <!-- <option value="lq_11">Agriculture, forestry, fishing and hunting</option> -->
@@ -196,8 +193,7 @@ function redraw() {
       "translate(" + d3.event.translate + ")"
       + " scale(" + d3.event.scale + ")");
 }
-d3.select("#selectPer")
-		.on("change", function(){menuChange();});
+
 d3.select("#selectType")
 		.on("change", function(){menuChange();});
 var tooltip = d3.select("body").append("div")
@@ -303,17 +299,14 @@ function updateDetails(county){
 }
 var totalFormat = d3.format(",");
 function menuChange(){
-	var selectPer = document.getElementById('selectPer');
-	selectPerValue = selectPer.options[selectPer.selectedIndex].value; 
+
 	var selectType = document.getElementById('selectType');
 	selectTypeValue = selectType.options[selectType.selectedIndex].value; 
-	var keyName = selectTypeValue + (selectPerValue == 'PerCap' ? 'PerCap' : '');
+	var keyName = selectTypeValue;
 	console.log(keyName);
 	updateMap(keyName);
 	console.log(d3.sum(counties, function(d){return d[selectTypeValue];}));
 	var num = d3.sum(counties, function(d){return d[selectTypeValue];});
-	d3.select("#magicNum")
-		.text(selectPerValue == 'PerCap' ? d3.round(num*10000/313000000, 3) + " per 100,000" : totalFormat(num));
 }
 function updateMap(key){
 	quantile.domain([0,1,5,50]);
