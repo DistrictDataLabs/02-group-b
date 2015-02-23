@@ -273,15 +273,15 @@ function ready(error, us, countiesJSON, countyPopJSON) {
 	menuChange();
 }
 var printDetails = [
-					{'var': 'fips', 'print': 'FIPS'},
+          {'var': 'fips', 'print': 'FIPS'},
 					{'var': 'lq_21', 'print': 'Mining'},
 					{'var': 'lq_23', 'print': 'Construction'},
 					{'var': 'lq_51', 'print': 'Information'},
-					{'var': 'Convicted Criminals L1', 'print': 'Misdemeanor Returns'},
-					{'var': 'No Criminal Conviction Return', 'print': 'Paperwork Returns'},
-					{'var': 'none', 'print': ''},
-					{'var': 'population', 'print': 'Population'},
-					{'var': 'Activation Date', 'print': 'Start Date'}];
+          {'var': 'lq_52', 'print': 'Finance, Insurance'},
+					{'var': 'lq_61', 'print': 'Education'},
+					{'var': 'lq_62', 'print': 'Healthcare'},
+					{'var': 'lq_71', 'print': 'Arts and Recreation'}];
+
 function updateDetails(county){
 	tooltip.selectAll("div").remove();
 	tooltip.selectAll("div").data(printDetails).enter()
