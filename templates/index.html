@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <meta charset="utf-8">
 <head>
@@ -171,14 +170,9 @@ var width = 800,
 	height = 500;
 var statById = d3.map();
 
-
-var ext_color_domain = [0, 1.000, 5.000, 50]
-var legend_labels = ["Under 1", "1-5","5-10", "50+"]
-
 var quantile = d3.scale.threshold()
     .domain(isNaN,0,1,5,50)
 		.range(['white','#ffffcc','#addd8e','#41ab5d','#005a32']);
-
 var path = d3.geo.path();
 var svg = d3.select("#map")
 		.attr("width", width)
@@ -193,7 +187,6 @@ function redraw() {
       "translate(" + d3.event.translate + ")"
       + " scale(" + d3.event.scale + ")");
 }
-
 d3.select("#selectType")
 		.on("change", function(){menuChange();});
 var tooltip = d3.select("body").append("div")
@@ -281,7 +274,6 @@ var printDetails = [
 					{'var': 'lq_61', 'print': 'Education'},
 					{'var': 'lq_62', 'print': 'Healthcare'},
 					{'var': 'lq_71', 'print': 'Arts and Recreation'}];
-
 function updateDetails(county){
 	tooltip.selectAll("div").remove();
 	tooltip.selectAll("div").data(printDetails).enter()
@@ -299,7 +291,6 @@ function updateDetails(county){
 }
 var totalFormat = d3.format(",");
 function menuChange(){
-
 	var selectType = document.getElementById('selectType');
 	selectTypeValue = selectType.options[selectType.selectedIndex].value; 
 	var keyName = selectTypeValue;
@@ -326,17 +317,15 @@ function updateMap(key){
 				return "white";
 		}});
 }
-
-
+var ext_color_domain = [0, 1.000, 5.000, 10, 50]
+var legend_labels = ["No activity", "Under 1.0", "1-5","5-50", "50+"]
 var colors =(['white','#ffffcc','#addd8e','#41ab5d','#005a32']);
-
-
 var legend = svg.selectAll("g.legend")
  .data(ext_color_domain)
  .enter().append("g")
  .attr("class", "legend");
  
-var ls_w = 20, ls_h = 20;
+var ls_w = 20, ls_h = 50;
  
 legend.append("rect")
  .attr("x", 20)
@@ -352,3 +341,4 @@ legend.append("text")
  .text(function(d, i){ return legend_labels[i]; });
  
 </script>
+
