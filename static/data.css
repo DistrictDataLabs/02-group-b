@@ -1,0 +1,14 @@
+.jumbotron {
+  background-image: url("carscity.jpeg");
+  background-size: cover;
+  border: 2px solid darkgray;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  height: 500px;
+  color: #F2EBC7;
+  padding-top: 5em;
+}
+
+ul {
+  list-style-type: none;
+}

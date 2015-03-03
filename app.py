@@ -11,5 +11,17 @@ def home():
 def about():
     return render_template("about.html")
 
+#About page
+@app.route('/visualizations')
+def visualizations():
+    return render_template("visualizations.html")
+
+#About page
+@app.route('/data')
+def data():
+    return render_template("data.html")
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
