@@ -9,6 +9,7 @@
   padding-top: 5em;
 }
 
-ul {
+ul li {
   list-style-type: none;
+  display: inline;
 }
