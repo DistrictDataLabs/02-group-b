@@ -3,31 +3,77 @@
 <head>
 <link rel="stylesheet" href="{{url_for('static',filename='normalize.css')}}">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="tooltip.css"/>
+<script src="{{url_for('static', filename='d3.min.js')}}"></script>
+<script src="{{url_for('static', filename='queue.min.js')}}"></script>
+<script src="{{url_for('static', filename='topojson.v1.min.js')}}"></script>
+<link rel="stylesheet" type="text/css" href="style.css"/>
 <link rel="stylesheet" type="text/css" href="data.css"/>
+
+
 </head>
+<body>
 <div class="jumbotron">
   <h1>The Detailed Economic Window</h1>
   <p>Your view on the economy.</p>
-  <p><a class="btn btn-danger btn-lg" href="#" role="button">The Window</a></p>
+  <p><a class="btn btn-success btn-lg" href="#" role="button">Scroll down to see the Window</a></p>
 </div>
 
 <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 text-center" id="maptitle">
+      <h3>We all wonder how or if our area is expanding. The Detailed Economic Window (DEW) is a platform helping you better understand economic trends in your community.</h3><p>Find out more about each industry in the 'industry description' section below.</p>
+          <form id="totalCap">
+		<select id="selectType" class="select">
+      <!-- <option value="lq_11">Agriculture, forestry, fishing and hunting</option> -->
+			<option value="lq_21">Mining, quarrying, and oil and gas extraction</option>
+      <!-- <option value="lq_22">Utilities</option> -->
+			<option value="lq_23">Construction</option>
+      <!-- <option value="lq_42">Wholesale trade</option> -->
+			<option value="lq_51">Information</option>
+			<option value="lq_52">Finance and insurance</option>
+      <!-- <option value="lq_53">Real estate and rental and leasing</option> -->
+      <!-- <option value="lq_54">Professional and technical services</option> -->
+      <!-- <option value="lq_55">Management of companies and enterprises</option> -->
+      <!-- <option value="lq_56">Administrative and waste servics</option> -->
+			<option value="lq_61">Educational services</option>
+			<option value="lq_62">Health care and social assistance</option>
+			<option value="lq_71">Arts, entertainment and recreation</option>
+      <!-- <option value="lq_72">Accomodation and food services</option> -->
+      <!-- <option value="lq_81">Other services, expect public administration</option> -->
+      <!-- <option value="lq_92">Public administration</option> -->
+		</select>			
+	</form>
+      </div>
+      <svg id="map" style="margin: 0 auto"></svg>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid" id="learnmore">
   <div class="row">
     <div class="col-md-12 text-center"><h2>Learn More</h2>
     </div>
      <ul>
       <div class="col-md-4 text-center">
-               <li> <img alt="Finance" src="{{url_for('static', filename='healthcare.svg')}}" style="height: 40px"></img>
-               View the Window, visualizations on industrial activity in the economy.</li></div>
+        <li>
+        <a class="btn btn-success btn-lg" href="#" role="button">The Detailed Economic Window</a></li>
+        View the Window alongside other visualizations on industrial activity in the economy.</div>
       <div class="col-md-4 text-center">
         <li>
-          <img alt="Finance" src="{{url_for('static', filename='healthcare.svg')}}" style="height: 40px"></img>
-        Learn more about publicly available economic data.</li></div>
+        <a class="btn btn-success btn-lg" href="#" role="button">Data</a></li>
+        Learn more about publicly available economic data.</div>
       <div class="col-md-4 text-center">
         <li>
-                <img alt="Finance" src="{{url_for('static', filename='healthcare.svg')}}" style="height: 40px"></img>
-        Read about the project and the team.</li></div>
+        <a class="btn btn-success btn-lg" href="#" role="button">About Us</a></li>
+        Read about the project and the team.</div>
       </ul>
     </div>
   </div>
 </div>
+</body>
+<script src="{{url_for('static', filename='dewmap.js')}}"></script>
+

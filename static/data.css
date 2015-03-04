@@ -1,15 +1,34 @@
+:root {
+  --reddish: #962D3E;
+  --blueish: #348899;
+  --whiteish: #F2EBC7;
+  --grey: #ddd;
+}
 .jumbotron {
   background-image: url("carscity.jpeg");
   background-size: cover;
-  border: 2px solid darkgray;
+  border: 2px solid black;
   background-repeat: no-repeat;
   overflow: hidden;
-  height: 500px;
+  height: 600px;
   color: #F2EBC7;
   padding-top: 5em;
+  padding-left: 1.5em;
+  margin-bottom: 0;
 }
 
 ul li {
   list-style-type: none;
   display: inline;
+}
+
+#learnmore {
+  background-color:  #F2EBC7;
+  height: 50em;
+}
+
+#maptitle {
+  margin-top: 0;
+  background-color:  #348899;
+  padding-top: 2em;
 }

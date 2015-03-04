@@ -1,5 +1,5 @@
 var width = 1000,
-	height = 500;
+	height = 650;
 var statById = d3.map();
 
 var quantile = d3.scale.threshold()
@@ -157,7 +157,7 @@ var legend = svg.selectAll("g.legend")
  .enter().append("g")
  .attr("class", "legend");
  
-var ls_w = 20, ls_h = 50;
+var ls_w = 20, ls_h = 25;
  
 legend.append("rect")
  .attr("x", 20)
@@ -171,15 +171,4 @@ legend.append("text")
  .attr("x", 50)
  .attr("y", function(d, i){ return height - (i*ls_h) - ls_h - 4;})
  .text(function(d, i){ return legend_labels[i]; });
-
-
- /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'dew'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
 

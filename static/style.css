@@ -6,21 +6,6 @@
   --whiteish: #F2EBC7;
   --grey: #ddd;
 }
-body{
-	font-family: Lato, Sans-serif;
-  background-color: white;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-
-}
-
-#header{
-	margin-left: 100px;
-	margin-top: 30px;
-	font-size: 110%;
-}
-
 
 .counties {
 	fill: none;
@@ -50,15 +35,9 @@ body{
 #selectType{
 	width: 280px;
 }
-
-#mapbox {
-  border-style: solid;
-  border-width: 1px;
-}
-
 svg{
 	margin-top: 0 auto;
-  border-style: solid;
+  border-style: none;
 
 }
 
@@ -98,9 +77,6 @@ footer a {
   color: #E8E8E8;
 }
 
-h1 {
-  font-family: Lustria, Sans-serif;
-}
 
 #legend {
     padding: 1.5em 0 0 1.5em;
@@ -109,27 +85,9 @@ h1 {
 li.key {
     border-top-width: 15px;
     border-top-style: solid;
-    font-size: .75em;
+    font-size: .2em;
     width: 10%;
     padding-left: 0;
-    padding-right: 0;
+    padding-right: 2em;
 }
 
-.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus{
-background-color:  #348899;
-color:  #F2EBC7;
-}
-
-.nav-pills>li>a, .nav-pills>li>a:hover, .nav-pills>li>a:focus{
-background-color:  #F2EBC7;
-color:#348899;
-}
-
-.mapholder {
-  margin: 0 auto;
-}
-
-.list-industry {
-  background-color: #F2EBC7;
-  box-shadow: 1px 1px 1px 1px;
-}
