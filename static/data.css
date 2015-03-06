@@ -29,6 +29,13 @@ ul li {
 
 #maptitle {
   margin-top: 0;
-  background-color:  #348899;
+  background-color:  white;
   padding-top: 2em;
+  border-bottom: solid 2px;
 }
+
+svg#map {
+  margin: 0 auto;
+  display: block;
+}
+
