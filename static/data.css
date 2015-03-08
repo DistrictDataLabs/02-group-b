@@ -3,6 +3,10 @@
   --blueish: #348899;
   --whiteish: #F2EBC7;
   --grey: #ddd;
+  #21499F;
+  #CA4433;
+ #E9E2DF;
+
 }
 .jumbotron {
   background-image: url("carscity.jpeg");
@@ -23,15 +27,38 @@ ul li {
 }
 
 #learnmore {
-  background-color:  #F2EBC7;
-  height: 50em;
+  background-color: #F2EBC7;
+  height: 30em;
 }
 
 #maptitle {
   margin-top: 0;
-  background-color:  white;
+  background-color:   #21499F;
+  color: #F2EBC7;
   padding-top: 2em;
   border-bottom: solid 2px;
+}
+
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -142px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  height: 142px; 
+}
+.site-footer {
+  background: orange;
 }
 
 svg#map {
