@@ -1,29 +1,33 @@
-<!DOCTYPE html>
 <meta charset="utf-8">
 <head>
 <link rel="stylesheet" href="{{url_for('static',filename='normalize.css')}}">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="about.css"/>
 </head>
-<body>
-<nav class="navbar navbar-default" id="navbar" style="height: 70px">
+<nav class="navbar navbar-default" style="margin: 0 auto; background-color: white;">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">
-        <img alt="DEW" src="{{url_for('static', filename='data1.svg')}}" style="height: 40px"></a>
-      <div style="margin-top: 10px;">
-        <div style="display: table-cell; vertical-align: middle;">The Detailed Economic Window (DEW)</div>
-        </div>
-      </div>
-      <div class="pull-right" style="margin-top: 10px">
-      <ul class="nav nav-pills">
-        <li>
-        <a href="{{ url_for('home')}}">National Map</a>
-        <li class="active"><a href="{{ url_for('about')}}">About</a></li>
-       </ul>
-     </div>
-     </div>
-   </div>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only" >Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='dewlogo.svg')}}" style="height: 40px"></img></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="{{ url_for('home')}}">Home<span class="sr-only">(current)</span></a></li>
+        <li><a href="{{ url_for('platform')}}">DEW</a></li>
+        <li><a href="{{ url_for('howto')}}">Using DEW</a></li>
+        <li><a href="{{ url_for('methodology')}}">Methodology</a></li>
+        <li class="active"><a href="{{ url_for('about')}}">About Us</a></li>
+         </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>
 
 <div class="container">
