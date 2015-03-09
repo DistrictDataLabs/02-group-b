@@ -1,20 +1,34 @@
 from flask import Flask, render_template
 
 app = Flask(__name__, static_folder='static', static_url_path='')
-#Main DEW page
+#Home
 @app.route('/')
 def home():
     return render_template("index.html")
+
+#Platform
+@app.route('/platform')
+def platform():
+    return render_template("platform.html")
+
+#How to use
+@app.route('/howto')
+def howto():
+    return render_template("howto.html")
+
+#Methodology
+@app.route('/methodology')
+def methodology():
+    return render_template("methodology.html")
 
 #About page
 @app.route('/about')
 def about():
     return render_template("about.html")
 
-#About page
-@app.route('/visualizations')
-def visualizations():
-    return render_template("visualizations.html")
+
+
+
 
 #About page
 @app.route('/data')
