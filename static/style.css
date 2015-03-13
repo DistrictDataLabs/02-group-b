@@ -35,14 +35,16 @@
 #selectType{
 	width: 280px;
 }
-svg{
-	margin-top: 0 auto;
-  border-style: none;
+svg#map{
+  float: right;
+  display: block;
+}
 
 }
 
 #map {
   margin: 0 auto;
+  height: 550px;
 }
 
 #links{
@@ -64,19 +66,7 @@ svg{
 }
 
 footer {
-            color: #F54F29;
-            background: #405952;
-            padding: 17px 0 18px 0;
-            border-top: 1px solid #000;
-            margin-top: 2em;
-            margin-bottom; 0;
-            position: absolute;
-            width: 100%;
         }
-footer a {
-  color: #E8E8E8;
-}
-
 
 #legend {
     padding: 1.5em 0 0 1.5em;

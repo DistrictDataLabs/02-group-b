@@ -1,4 +1,4 @@
-var width = 1000,
+var width = 800,
 	height = 650;
 var statById = d3.map();
 
