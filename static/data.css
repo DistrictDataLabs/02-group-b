@@ -20,8 +20,8 @@
   border: 2px solid black;
   background-repeat: no-repeat;
   overflow: hidden;
-  height: 600px;
-  color: #ffffcc;
+  height: 800px;
+  color: white;
   padding-top: 5em;
   padding-left: 1.5em;
   margin-bottom: 0;
@@ -33,15 +33,18 @@ ul li {
 }
 
 #learnmore {
-  background-color: #ffffcc;
+  background-image: url("gridme.png");
   height: 30em;
+  border-top: 2px solid;
+  margin-top: 1em;
 }
 
 #maptitle {
   margin-top: 0;
   background-color:   #253494;
-  color: #ffffcc;
+  color: white;
   padding-top: 2em;
+  padding-bottom: 2em;
   border-bottom: solid 2px;
 }
 

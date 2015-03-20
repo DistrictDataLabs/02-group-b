@@ -42,7 +42,7 @@
 <div class="jumbotron">
   <h1>The Detailed Economic Window</h1>
   <p>Your view on the economy.</p>
-    <span class="glyphicon glyphicon-chevron-down btn-lg" aria-hidden="true"></span>
+    <span class="glyphicon glyphicon-chevron-down btn-lg" id="bounce" aria-hidden="true"></span>
 </div>
 
 <div class="container-fluid">
@@ -89,15 +89,15 @@
     </div>
      <ul>
       <div class="col-md-4 text-center" id="dewplatform">
-        <li><a href="{{ url_for('platform')}}">View the Window alongside historical data on industrial activity and wages.</a></li>
+        <li><h3><a href="{{ url_for('platform')}}">View the Window alongside historical data on industrial activity and wages</h3></a></li>
       </div>
 
       <div class="col-md-4 text-center" id="methodology">
-        <li><a href="{{ url_for('methodology')}}">
-          Learn more about publicly available economic data.</a></li></div>
+        <li><h3><a href="{{ url_for('methodology')}}">
+            Learn more about publicly available economic data<h3></a></li></div>
       <div class="col-md-4 text-center" id="aboutus">
-        <li><a href="{{ url_for('about')}}">
-          Read about the project and the team.</a></li></div>
+        <li><h3><a href="{{ url_for('about')}}">
+          Read about the project and the team</h3></a></li></div>
       </ul>
     </div>
   </div>
