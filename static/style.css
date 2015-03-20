@@ -15,7 +15,7 @@
 
 .states {
 	fill: none;
-	stroke: black;
+	stroke: grey;
 	stroke-linejoin: round;	
 	stroke-width:1;
 }
@@ -41,7 +41,6 @@ svg#map{
 
 }
 
-}
 
 #map {
   margin: 0 auto;

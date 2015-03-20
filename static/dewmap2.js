@@ -4,7 +4,7 @@ var statById = d3.map();
 
 var quantile = d3.scale.threshold()
     .domain(isNaN,0,1,5,50)
-		.range(['#ffffcc','#a1dab4','#41b6c4','#2c7fb8', '#253494']);
+		.range(['white','#a1dab4','#41b6c4','#2c7fb8', '#253494']);
 var path = d3.geo.path();
 var svg = d3.select("#map")
 		.attr("width", width)
@@ -142,7 +142,7 @@ function updateMap(key){
 }
 var ext_color_domain = [0, 1.000, 5.000, 10, 50]
 var legend_labels = ["No activity", "Limited activity, <1.0", "Industrial activity, 1-5","Growing activity, 5-50", "Exporter, 50+"]
-var colors =(['#ffffcc','#a1dab4','#41b6c4','#2c7fb8', '#253494']);
+var colors =(['white','#a1dab4','#41b6c4','#2c7fb8', '#253494']);
 var legend = svg.selectAll("g.legend")
  .data(ext_color_domain)
  .enter().append("g")
