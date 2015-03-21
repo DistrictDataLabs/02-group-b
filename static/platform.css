@@ -1,5 +1,44 @@
-svg#map{
-  display: block;
+.counties {
+	fill: none;
+	stroke: black;
+	stroke-width:.2;
+}
+
+.states {
+	fill: none;
+	stroke: grey;
+	stroke-linejoin: round;	
+	stroke-width:1;
+}
+
+.select {
+	font-size: 100%;
+ }
+
+#selectPer{
+	width: 160px;
+}
+
+#selectType{
+	width: 280px;
+}
+svg#d3map{
+  display: inline;
   float: right;
+  border: solid 2px;
 
 }
+
+
+#links{
+	text-align: center;
+}
+
+#map {
+  position:relative;
+  top:0;
+  bottom:0; 
+  width:100%; 
+}
+
+
