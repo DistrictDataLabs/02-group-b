@@ -28,7 +28,7 @@ var tooltip = d3.select("body").append("div")
 tooltip.append("span").attr("id", "countyName")
 queue()
 	.defer(d3.json, "us.json")
-	.defer(d3.csv, "mvpfinal020715.csv")
+	.defer(d3.csv, "mvpfinal032415.csv")
 	.defer(d3.json, "countyPop.json")
 	.await(ready);
 errorArray = [];
@@ -55,6 +55,8 @@ function ready(error, us, countiesJSON, countyPopJSON) {
 			d.lq_11 = +d['lq_72'];
 			d.lq_11 = +d['lq_81'];
 			d.lq_11 = +d['lq_92'];
+      d.medianincome = +d['medianincome'];
+      d.county_name = +d['county_name'];
 			statById.set(+d.fips, d);
 			if (isNaN(lq_21)) lq_21 = 0;
 			if (isNaN(lq_51)) lq_51 = 0;
@@ -98,7 +100,9 @@ function ready(error, us, countiesJSON, countyPopJSON) {
 	menuChange();
 }
 var printDetails = [
-          {'var': 'fips', 'print': 'FIPS'},
+          {'var': 'county_name.val()', 'print': 'County'},
+          {'var': 'MedianIncome', 'print': 'Median Income'},
+          {'var': 'none', 'print': ''},
 					{'var': 'lq_21', 'print': 'Mining'},
 					{'var': 'lq_23', 'print': 'Construction'},
 					{'var': 'lq_51', 'print': 'Information'},

@@ -19,7 +19,7 @@ var tooltip = d3.select("body").append("div")
 tooltip.append("span").attr("id", "countyName")
 queue()
 	.defer(d3.json, "us.json")
-	.defer(d3.csv, "mvpfinal020715.csv")
+	.defer(d3.csv, "mvpfinal032415.csv")
 	.defer(d3.json, "countyPop.json")
 	.await(ready);
 errorArray = [];
@@ -89,7 +89,7 @@ function ready(error, us, countiesJSON, countyPopJSON) {
 	menuChange();
 }
 var printDetails = [
-          {'var': 'fips', 'print': 'FIPS'},
+          {'var': 'county_name', 'print': 'FIPS'},
 					{'var': 'lq_21', 'print': 'Mining'},
 					{'var': 'lq_23', 'print': 'Construction'},
 					{'var': 'lq_51', 'print': 'Information'},
@@ -110,7 +110,7 @@ function updateDetails(county){
 						return (""+county[d.var]).indexOf('/') == -1 ? totalFormat(county[d.var]) : county[d.var];
 					}})
 				.attr("class", "normalDetail");
-	d3.select("#countyName").text(county.County);
+	d3.select("countyName").text(county.CountyName);
 }
 var totalFormat = d3.format(",");
 function menuChange(){
