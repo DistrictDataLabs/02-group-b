@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
 
 app = Flask(__name__, static_folder='static', static_url_path='')
 #Home
@@ -27,10 +27,11 @@ def about():
     return render_template("about.html")
 
 
+#Advanced routing
+@app.route('/county_results/<search_string>', meth
 
 
-
-#About page
+#Data test page
 @app.route('/data')
 def data():
     return render_template("data.html")
