@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, request
 
 app = Flask(__name__, static_folder='static', static_url_path='')
 #Home
@@ -28,7 +28,17 @@ def about():
 
 
 #Advanced routing
-@app.route('/county_results/<search_string>', meth
+@app.route('/local')
+def local():
+    return render_template("local.html")
+
+@app.route('/', methods = ['POST'])
+def my_form_post():
+    county = request.form['county']
+    state =  request.form['state']
+    print (county + "County, in " + state)
+
+
 
 
 #Data test page

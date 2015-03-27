@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<link rel="stylesheet" href="{{url_for('static',filename='normalize.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='bootstrap.min.css')}}">
+<link rel="stylesheet" type="text/css" href="tooltip.css"/>
+<script src="{{url_for('static', filename='d3.min.js')}}"></script>
+<script src="{{url_for('static', filename='queue.min.js')}}"></script>
+<script src="{{url_for('static', filename='topojson.v1.min.js')}}"></script>
+
+<link rel="stylesheet" type="text/css" href="platform.css"/>
+
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.css' rel='stylesheet' />
+
+</head>
+<nav class="navbar navbar-default" style="margin: 0 auto; background-color: white;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only" >Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='dewlogo.svg')}}" style="height: 40px"></img></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+        <li><a href="{{ url_for('home')}}">Home<span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="{{ url_for('platform')}}">DEW</a></li>
+        <li><a href="{{ url_for('howto')}}">Using DEW</a></li>
+        <li><a href="{{ url_for('methodology')}}">Methodology</a></li>
+        <li><a href="{{ url_for('about')}}">About Us</a></li>
+          </li>
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<form action="/local" method="post">
+  <input type="text" county="county"></input>
+  <input type="submit" name="my-form" value="Send">
+  <input type="text" state="state"></input>
+</form>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <h1>Industrial concentration across the country</h1>
+      <p>Scroll around the country and find location quotients in your area.</p>
+    </div>
+  </div>
+</div>
+
+</div>
+<div class="container mapholder">
+  <div class="row">
+    <div class="span4">
+      <h2>Industrial Descriptions</h2>
+        <ul>
+          <li>Mining:</li>
+          <li>Construction:</li>
+          <li>Information:</li>
+          <li>Finance:</li>
+          <li>Education:</li>
+          <li>Healthcare:</li>
+          <li>The Arts:</li>
+        </ul>
+    </div>
+    <div class="span8">
+      <svg id="d3map"></svg>
+    <form id="totalCap">
+		<select id="selectType" class="select">
+      <!-- <option value="lq_11">Agriculture, forestry, fishing and hunting</option> -->
+			<option value="lq_21">Mining, quarrying, and oil and gas extraction</option>
+      <!-- <option value="lq_22">Utilities</option> -->
+			<option value="lq_23">Construction</option>
+      <!-- <option value="lq_42">Wholesale trade</option> -->
+			<option value="lq_51">Information</option>
+			<option value="lq_52">Finance and insurance</option>
+      <!-- <option value="lq_53">Real estate and rental and leasing</option> -->
+      <!-- <option value="lq_54">Professional and technical services</option> -->
+      <!-- <option value="lq_55">Management of companies and enterprises</option> -->
+      <!-- <option value="lq_56">Administrative and waste servics</option> -->
+			<option value="lq_61">Educational services</option>
+			<option value="lq_62">Health care and social assistance</option>
+			<option value="lq_71">Arts, entertainment and recreation</option>
+      <!-- <option value="lq_72">Accomodation and food services</option> -->
+      <!-- <option value="lq_81">Other services, expect public administration</option> -->
+      <!-- <option value="lq_92">Public administration</option> -->
+		</select>			
+	</form>
+    <p><em>Find out more about each industry in the 'industry description' section below.</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <div id='map'></div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+<footer>
+</footer>
+<script src="{{url_for('static', filename='dewmap.js')}}"></script>
+<script src="{{url_for('static', filename='mapbox1.js')}}"></script>
+
+
