@@ -37,9 +37,7 @@ def my_form_post():
     county = request.form['county']
     state =  request.form['state']
     print (county + "County, in " + state)
-
-
-
+    redirect('/')
 
 #Data test page
 @app.route('/data')
