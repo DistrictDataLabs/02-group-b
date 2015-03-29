@@ -6,7 +6,7 @@ var quantile = d3.scale.threshold()
     .domain(isNaN,0,1,5,50)
 		.range(['white','#ffffcc','#addd8e','#41ab5d','#005a32']);
 var path = d3.geo.path();
-var svg = d3.select("#map")
+var svg = d3.select("#d3map")
 		.attr("width", width)
 		.attr("height", height)
 	.append('svg:g')
