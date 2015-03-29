@@ -22,13 +22,6 @@
 #selectType{
 	width: 280px;
 }
-svg#d3map{
-  display: inline;
-  float: right;
-  border: solid 2px;
-
-}
-
 
 #links{
 	text-align: center;
