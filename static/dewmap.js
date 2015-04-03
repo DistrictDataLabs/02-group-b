@@ -56,7 +56,6 @@ function ready(error, us, countiesJSON, countyPopJSON) {
 			d.lq_11 = +d['lq_81'];
 			d.lq_11 = +d['lq_92'];
       d.medianincome = +d['medianincome'];
-      d.county_name = +d['county_name'];
 			statById.set(+d.fips, d);
 			if (isNaN(lq_21)) lq_21 = 0;
 			if (isNaN(lq_51)) lq_51 = 0;
@@ -100,7 +99,6 @@ function ready(error, us, countiesJSON, countyPopJSON) {
 	menuChange();
 }
 var printDetails = [
-          {'var': 'county_name.val()', 'print': 'County'},
           {'var': 'MedianIncome', 'print': 'Median Income'},
           {'var': 'none', 'print': ''},
 					{'var': 'lq_21', 'print': 'Mining'},
@@ -123,7 +121,7 @@ function updateDetails(county){
 						return (""+county[d.var]).indexOf('/') == -1 ? totalFormat(county[d.var]) : county[d.var];
 					}})
 				.attr("class", "normalDetail");
-	d3.select("#countyName").text(county.County);
+	d3.select("#countyName").text(county.county_name);
 }
 var totalFormat = d3.format(",");
 function menuChange(){

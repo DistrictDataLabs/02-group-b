@@ -1,15 +1,24 @@
 from flask import Flask, render_template, redirect, request
+from flask_wtf import Form
+from wtforms import TextField, SubmitField
 
 app = Flask(__name__, static_folder='static', static_url_path='')
+app.secret_key = 'development key'
+
+class MyForm(Form):
+    state = TextField("State")
+    submit = SubmitField("Send")
+
 #Home
 @app.route('/')
 def home():
     return render_template("index.html")
 
 #Platform
-@app.route('/platform')
+@app.route('/platform', methods=['GET', 'POST'])
 def platform():
-    return render_template("platform.html")
+    form = MyForm()
+    return render_template("platform.html", form = form)
 
 #How to use
 @app.route('/howto')

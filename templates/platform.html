@@ -37,6 +37,13 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+{% block content %}
+  <h2>Select your State/County </h2>
+  <form method=post>
+    {{ form.state }}
+    {{ form.submit }}
+  </form>
+{% endblock %}
   <div class="container-fluid">
 
     <div class="row">
