@@ -9,57 +9,9 @@
   <script src="{{url_for('static', filename='d3.min.js')}}"></script>
   <script src="{{url_for('static', filename='queue.min.js')}}"></script>
   <script src="{{url_for('static', filename='topojson.v1.min.js')}}"></script>
+  <script src="{{url_for('static', filename='jquery-1.10.2.min.js')}}"></script>
   <link rel="stylesheet" type="text/css" href="platform.css"/>
 </head>
-  <div class="container-fluid">
-
-    <div class="row">
-      <div class="col-sm-6 col-md-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            Cell Title
-          </div>
-          <div class="chart-stage">
-            <div id="grid-1-1">
-<iframe id="cr-embed-01000US-economics-income-household_distribution" class="census-reporter-embed" src="https://s3.amazonaws.com/embed.censusreporter.org/1.0/iframe.html?geoID=01000US&chartDataID=economics-income-household_distribution&dataYear=2013&chartType=histogram&chartHeight=200&chartQualifier=&chartTitle=Household+income&initialSort=&statType=scaled-percentage" frameborder="0" width="100%" height="300" style="margin: 1em; max-width: 720px;"></iframe>
-            </div>
-          </div>
-          <div class="chart-notes">
-            Notes about this chart
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            Cell Title
-          </div>
-          <div class="chart-stage">
-<iframe id="cr-embed-01000US-social-educational_attainment_distribution" class="census-reporter-embed" src="https://s3.amazonaws.com/embed.censusreporter.org/1.0/iframe.html?geoID=01000US&chartDataID=social-educational_attainment_distribution&dataYear=2013&chartType=histogram&chartHeight=200&chartQualifier=Universe%3A+Population+25+years+and+over&chartTitle=Population+by+minimum+level+of+education&initialSort=&statType=scaled-percentage" frameborder="0" width="100%" height="300" style="margin: 1em; max-width: 720px;"></iframe>
-          </div>
-          <div class="chart-notes">
-            Notes about this chart
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            Cell Title
-          </div>
-          <div class="chart-stage">
-            <img data-src="holder.js/100%x180/white">
-          </div>
-          <div class="chart-notes">
-            Notes about this chart
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-sm-12">
-        <div class="chart-wrapper">
-          <div class="chart-title">
     <form id="totalCap">
 		<select id="selectType" class="select">
       <!-- <option value="lq_11">Agriculture, forestry, fishing and hunting</option> -->
@@ -79,35 +31,19 @@
       <!-- <option value="lq_72">Accomodation and food services</option> -->
       <!-- <option value="lq_81">Other services, expect public administration</option> -->
       <!-- <option value="lq_92">Public administration</option> -->
-		</select>			
-	</form>          </div>
+		</select>
+	</form>
+</div>
           <div class="chart-stage">
                   <svg id="d3map"></svg>
           </div>
-          <div class="chart-notes">
-            Notes go down here
-          </div>
-        </div>
-      </div>
-    </div>
-
-
 
     </div>
   </div>
   <script src="{{url_for('static', filename='jquery.min.js')}}"></script>
   <script src="{{url_for('static', filename='bootstrap.min.js')}}"></script>
-  <script src="{{url_for('static', filename='holder.js')}}"></script>
-  <script src="{{url_for('static', filename='keen.min.js')}}"></script>
-  <script src="{{url_for('static', filename='meta.js')}}"></script>
-
-
-  <script>
-    Holder.add_theme("white", { background:"#fff", foreground:"#a7a7a7", size:10 });
-  </script>
-
 </body>
 <script src="{{url_for('static', filename='dewmap.js')}}"></script>
-<script src="https://s3.amazonaws.com/embed.censusreporter.org/1.0/js/embed.chart.make.js"></script>
 </html>
+
 

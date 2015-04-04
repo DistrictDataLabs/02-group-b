@@ -4,9 +4,9 @@ var statById = d3.map();
 
 var quantile = d3.scale.threshold()
     .domain(isNaN,0,1,5,50)
-		.range(['white','#ffffcc','#addd8e','#41ab5d','#005a32']);
+		.range(['white','#fdbe85','#fd8d3c','#e6550d','#a63603']);
 var path = d3.geo.path();
-var svg = d3.select("#d3map")
+var svg = d3.select("#d3map_public")
 		.attr("width", width)
 		.attr("height", height)
 	.append('svg:g')
@@ -19,12 +19,12 @@ function redraw() {
       "translate(" + d3.event.translate + ")"
       + " scale(" + d3.event.scale + ")");
 }
-d3.select("#selectType")
+d3.select("#selectType_public")
 		.on("change", function(){menuChange();});
 var tooltip = d3.select("body").append("div")
   	  .attr("class", "tooltip")
   	  .style("opacity", 1e-6)
-  	  .style("background", "rgba(250,250,250,.7)");
+  	  .style("background", "rgba(250,250,250,.7)") 
 tooltip.append("span").attr("id", "countyName")
 queue()
 	.defer(d3.json, "us.json")
@@ -39,13 +39,22 @@ function ready(error, us, countiesJSON, countyPopJSON) {
 	countyPop = countyPopJSON;
 	counties.forEach(function(d){
 		try{
-			d.lq_21 = +d['lq_21_5'];
-			d.lq_23 = +d['lq_23_5'];
-			d.lq_51 = +d['lq_51_5'];
-			d.lq_52 = +d['lq_52_5'];
-			d.lq_61 = +d['lq_61_5'];
-			d.lq_62 = +d['lq_62_5'];
-      d.lq_71 = +d['lq_71_5'];
+			d.lq_11_1 = +d['lq_11_1'];
+			d.lq_21_1  = +d['lq_21_1'];
+ 			d.lq_22_1  = +d['lq_22_1'];
+			d.lq_23_1  = +d['lq_23_1'];
+			d.lq_11_1  = +d['lq_42_1'];
+			d.lq_51_1  = +d['lq_51_1'];
+			d.lq_11_1  = +d['lq_52_1'];
+			d.lq_11_1  = +d['lq_53_1'];
+      d.lq_11_1  = +d['lq_55_1'];
+			d.lq_11_1  = +d['lq_56_1'];
+			d.lq_61_1  = +d['lq_61_1'];
+			d.lq_62_1  = +d['lq_62_1'];
+      d.lq_71_1  = +d['lq_71_1'];
+			d.lq_72_1  = +d['lq_72_1'];
+			d.lq_81_1  = +d['lq_81_1'];
+			d.lq_92_1  = +d['lq_92_1'];
       d.medianincome = +d['medianincome'];
 			statById.set(+d.fips, d);
 			if (isNaN(lq_21)) lq_21 = 0;
@@ -92,13 +101,13 @@ function ready(error, us, countiesJSON, countyPopJSON) {
 var printDetails = [
           {'var': 'MedianIncome', 'print': 'Median Income'},
           {'var': 'none', 'print': ''},
-					{'var': 'lq_21', 'print': 'Mining'},
-					{'var': 'lq_23', 'print': 'Construction'},
-					{'var': 'lq_51', 'print': 'Information'},
-          {'var': 'lq_52', 'print': 'Finance, Insurance'},
-					{'var': 'lq_61', 'print': 'Education'},
-					{'var': 'lq_62', 'print': 'Healthcare'},
-					{'var': 'lq_71', 'print': 'Arts and Recreation'}];
+					{'var': 'lq_21_1', 'print': 'Mining'},
+					{'var': 'lq_23_1', 'print': 'Construction'},
+					{'var': 'lq_51_1', 'print': 'Information'},
+          {'var': 'lq_52_1', 'print': 'Finance, Insurance'},
+					{'var': 'lq_61_1', 'print': 'Education'},
+					{'var': 'lq_62_1', 'print': 'Healthcare'},
+					{'var': 'lq_71_1', 'print': 'Arts and Recreation'}];
 function updateDetails(county){
 	tooltip.selectAll("div").remove();
 	tooltip.selectAll("div").data(printDetails).enter()
@@ -116,7 +125,7 @@ function updateDetails(county){
 }
 var totalFormat = d3.format(",");
 function menuChange(){
-	var selectType = document.getElementById('selectType');
+	var selectType = document.getElementById('selectType_public');
 	selectTypeValue = selectType.options[selectType.selectedIndex].value; 
 	var keyName = selectTypeValue;
 	console.log(keyName);

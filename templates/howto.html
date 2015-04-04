@@ -2,6 +2,7 @@
 <head>
 <link rel="stylesheet" href="{{url_for('static',filename='normalize.css')}}">
 <link rel="stylesheet" href="{{url_for('static',filename='bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="data.css"/>
 </head>
 <nav class="navbar navbar-default" style="margin: 0 auto; background-color: white;">
   <div class="container-fluid">
@@ -29,19 +30,20 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<h1>The Detailed Economic Window</h1>
-<h2>Using DEW</h2>
+
 
 <div class="container">
   <div class="row">
     <div class="span12">
-      <h1>Understanding the Location Quotient</h1>
+      <h1>The Detailed Economic Window</h1>
+<h2>Using DEW</h2>
+      <h3>Understanding the Location Quotient</h3>
       <p>
 The location quotient (LQ) is a way of quantifying the concentration of a particular industry, occupation, or demographic group in a region as compared to a larger area (i.e. nation or state) as a whole. It is an index frequently used in geography and economics to measure the relative concentration of activities, and is critical to understanding an area's economic strengths and weaknesses. It can reveal what makes a particular region “unique” in comparison to the national average. Specifically LQs can help identify emerging export industries beginning to bring money into the region, as well as endangered export industries that could erode the region’s economic base.</p>
 <p>Location Quotients are determined by a formula similar to the one below.</p>
 
-<h2>Interpreting the Formula</h2>
-<h3>Location Quotient = (% of local employment in sector X) / (% of regional employment in sector X)</h3>
+<h3>Interpreting the Formula</h3>
+<h4>Location Quotient = (% of local employment in sector X) / (% of regional employment in sector X)</h4>
 
 <ul>
   <li>A LQ greater than 1 signifies that an industry’s concentration in a local region is larger than the national concentration.</li><br>
@@ -50,7 +52,7 @@ The location quotient (LQ) is a way of quantifying the concentration of a partic
 </ul>
 <p>As previously mentioned, the LQ is used identify export/import industries based on certain assumptions; such as the idea that local consumption and labor productivity are uniform across all regions. Based on this assumption, if an industry’s local presence exceeds its national share then local production is said to exceed local demand. Thus, a portion of local employment in that industry is assumed to be export. If the local presence is less than or equal to the national, then it is assumed that local production serves only local demand.
       </p>
-         <h2>Industry Descriptions</h2>
+         <h3>Industry Descriptions</h3>
           <ul>
             <li class="list-industry"><img alt="Mining" src="{{url_for('static', filename='mining.svg')}}" style="height: 70px"></a><strong>Mining, Quarrying, and Oil</strong>
           <p>
@@ -106,4 +108,10 @@ Excluded from this sector are: (1) establishments that provide both accommodatio
         </div>
       </div>
     </div>
-
+ <div class="footer">
+   <div class="container-fluid">
+     <div class ="col-md-12 text-left">
+   <h4 id="footertext">2015 - Product of District Data Labs Incubator Program</h4>
+ </div>
+ </div>
+ </div>
