@@ -9,7 +9,7 @@
 <script src="{{url_for('static', filename='topojson.v1.min.js')}}"></script>
 <link rel="stylesheet" type="text/css" href="style.css"/>
 <link rel="stylesheet" type="text/css" href="data.css"/>
-<link rel="stylesheet" type="text/css" href="footer.css"/>
+
 
 </head>
 <nav class="navbar navbar-default" style="margin: 0 auto; background-color: white;">
@@ -29,6 +29,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="{{ url_for('home')}}">Home<span class="sr-only">(current)</span></a></li>
         <li><a href="{{ url_for('platform')}}">DEW</a></li>
+        <li><a href="{{ url_for('howto')}}">Industrial Clusters</a></li>
         <li><a href="{{ url_for('howto')}}">Using DEW</a></li>
         <li><a href="{{ url_for('methodology')}}">Methodology</a></li>
         <li><a href="{{ url_for('about')}}">About Us</a></li>
@@ -39,18 +40,8 @@
   </div><!-- /.container-fluid -->
 </nav>
 <body>
-<div class="jumbotron">
-  <h1>The Detailed Economic Window</h1>
-  <p>Your view on the economy.</p>
-
-</div>
-
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-12 text-center" id="maptitle">
-      <h3>We all wonder how or if economic opportunities in our area are expanding. The Detailed Economic Window (DEW) is a platform helping you better understand these trends in your community.</h3>
-   </div>
-      <svg id="map"></svg>
       <div class="col-md-12" style: "border-top: solid 2px;">
         <h4>Select the industry of your interest below.</h4>
           <form id="totalCap">
@@ -85,22 +76,9 @@
 
 <div class="container-fluid" id="learnmore">
   <div class="row">
-    <div class="col-md-12 text-center"><h2>Learn More</h2>
+    <svg id="map"></svg>
     </div>
-     <ul>
-      <div class="col-md-4 text-center" id="dewplatform">
-        <li><h3><a href="{{ url_for('platform')}}">View the Window alongside historical data on industrial activity and wages</h3></a></li>
-      </div>
-
-      <div class="col-md-4 text-center" id="methodology">
-        <li><h3><a href="{{ url_for('methodology')}}">
-            Learn more about publicly available economic data<h3></a></li></div>
-      <div class="col-md-4 text-center" id="aboutus">
-        <li><h3><a href="{{ url_for('about')}}">
-          Read about the project and the team</h3></a></li></div>
-      </ul>
     </div>
-  </div>
 </div>
  <div class="footer">
    <div class="container-fluid">
@@ -111,4 +89,5 @@
 </div>
 </body>
 <script src="{{url_for('static', filename='dewmap2.js')}}"></script>
+
 

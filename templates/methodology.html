@@ -2,7 +2,7 @@
 <head>
 <link rel="stylesheet" href="{{url_for('static',filename='normalize.css')}}">
 <link rel="stylesheet" href="{{url_for('static',filename='bootstrap.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="data.css"/>
+    <link rel="stylesheet" type="text/css" href="footer.css"/>
 </head>
 <nav class="navbar navbar-default" style="margin: 0 auto; background-color: white;">
   <div class="container-fluid">
@@ -34,6 +34,7 @@
   <div class="row">
     <div class="span12">
 <h1>The Detailed Economic Window</h1>
+<h2>Industrial Analysis</h2>
 <p>
 In order to better understand the interplay of the many variables included in the Quarterly Census of Employment and Wages, we decided to use hierarchical clustering methods to help identify pockets that share similar industrial makeups regardless of their demographics or geography.</p>
 <p>
@@ -41,15 +42,17 @@ In order to better understand the interplay of the many variables included in th
 We undertook both an industry-by-industry analysis and a broader analysis of all industries. Due to the high volatility of data on federal economic activity, we chose to focus only on private businesses to simplify the analysis. Annual averages of seven variables (no. of establishments, employment level, total wages, taxable wages, annual unemployment contributions, average weekly wages, and annual salary) were included for the seven identified industries (mining, information, construction, arts/entertainment, finance/insurance, education, and health care). 
 </p>
 <p>
-
+<h2>Exploratory Clustering</h2>
 In order to compensate for wide ranges population size and economic power in different counties, the variables were standardized and a correlation-based matrix was used (rather than the standard Euclidean distance measure). From there, hierarchical clustering methods with average, complete, and single linkages were fitted. These showed consistent results and significant divisions between five and 20 clusters. For the initial analysis we chose to use five clusters for the mapping.
 </p>
+<img src='clustering.png' width="500" height="400">
 <p>
 
-Each cluster represents a group of counties that share similar characteristics across the seven industries and seven variables, though not necessarily the same magnitude of each of these quantities. One can see distinct regional differences on the map arising among the clusters. 
+Each cluster represents a group of counties that share similar characteristics across the seven industries and seven variables, though not necessarily the same magnitude of each of these quantities. One can see distinct regional differences on the map arising among the clusters.
+
 </p>
 <p>
-
+<h2>Next Steps</h2>
 Though initial attempts at spatial analysis were less than successful, we hope to incorporate this area into better understanding how geography plays a role in concentrations of different industries.
 </p>
 <p>

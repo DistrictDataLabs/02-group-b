@@ -20,6 +20,11 @@ def platform():
     form = MyForm()
     return render_template("platform.html", form = form)
 
+#Cluster view
+@app.route('/cluster')
+def cluster():
+    return render_template("cluster.html")
+
 #How to use
 @app.route('/howto')
 def howto():
